@@ -3,6 +3,7 @@ package creditCardValidationProject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReadTextFile
@@ -11,6 +12,8 @@ public class ReadTextFile
 			{
 				readTextFile();
 			}
+
+		static ArrayList<Card> cardList = new ArrayList<Card>();
 
 		public static void readTextFile() throws FileNotFoundException
 			{
@@ -21,9 +24,14 @@ public class ReadTextFile
 						String cardNumbers = myFile.next();
 						System.out.println(cardNumbers);
 						String[] cardNumbersArray = cardNumbers.split("");
-						for (int i = 0; i < cardNumbersArray.length; i++)
+						cardList.add(new Card(cardNumbersArray));
+//						for (int i = 0; i < cardNumbersArray.length; i++)
+//							{
+//								System.out.println(Integer.parseInt(cardNumbersArray[i]) + 1);
+//							}
+						for (int i = 0; i < cardList.size(); i++)
 							{
-								System.out.println(Integer.parseInt(cardNumbersArray[i]) + 1);
+								System.out.println(cardList.get(i).getCardNums()[i]);
 							}
 					}
 			}
