@@ -6,33 +6,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ReadTextFile
+public class DataUtils
 	{
 		public static void main(String[] args) throws FileNotFoundException
 			{
 				readTextFile();
 			}
 
-		static ArrayList<Card> cardList = new ArrayList<Card>();
+		static ArrayList<Card> allCards = new ArrayList<Card>();
 
 		public static void readTextFile() throws FileNotFoundException
 			{
 
-				Scanner myFile = new Scanner(new File("cardNumbers"));
+				Scanner myFile = new Scanner(new File("cardNumbers.txt"));
 				while (myFile.hasNext())
 					{
-						String cardNumbers = myFile.next();
-						System.out.println(cardNumbers);
-						String[] cardNumbersArray = cardNumbers.split("");
-						cardList.add(new Card(cardNumbersArray));
+						String cardNumber = myFile.next();
+						System.out.println(cardNumber);
+						String[] cardNumbers = cardNumber.split("");
+						Card creditCard = new Card(cardNumbers);
+						allCards.add(creditCard);
 //						for (int i = 0; i < cardNumbersArray.length; i++)
 //							{
 //								System.out.println(Integer.parseInt(cardNumbersArray[i]) + 1);
 //							}
-						for (int i = 0; i < cardList.size(); i++)
+						for (int i = 0; i < allCards.size(); i++)
 							{
-								System.out.println(cardList.get(i).getCardNums()[i]);
+								System.out.println(allCards.get(i).toString());
 							}
 					}
 			}
 	}
+
+// read file, parse data

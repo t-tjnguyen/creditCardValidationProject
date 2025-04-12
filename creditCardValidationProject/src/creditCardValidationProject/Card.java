@@ -1,5 +1,7 @@
 package creditCardValidationProject;
 
+import java.util.Arrays;
+
 public class Card
 	{
 		private String[] cardNums;
@@ -7,6 +9,7 @@ public class Card
 		public Card(String[] c)
 		{
 			cardNums = c;
+			System.out.println("Hi");
 		}
 
 		public String[] getCardNums()
@@ -18,4 +21,12 @@ public class Card
 			{
 				this.cardNums = cardNums;
 			}
+
+		@Override
+		public String toString()
+			{
+				return "Card [cardNums=" + Arrays.toString(cardNums) + "]";
+			}
+		
+		
 	}
